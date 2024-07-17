@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Pay Calculator</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+table {
+  margin: 50px auto;
+  border-collapse: collapse;
+  width: 50%;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
+input[type=text], input[type=number] {
+  padding: 8px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  width: 50%;
+}
+input[type=submit] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1>Employee Salary Calculator</h1>
+<form id="salaryForm">
+  <label for="name">Employee Name:</label>
+  <input type="text" id="name" name="name" required><br>
+  <label for="hours">Hours Worked:</label>
+  <input type="number" id="hours" name="hours" required><br>
+  <label for="rate">Rate per Hour:</label>
+  <input type="number" id="rate" name="rate" required><br>
+  <input type="submit" value="Calculate Salary">
+</form>
+
+<div id="results">
+  <h2>Salary Details</h2>
+  <p>Employee Name: <span id="empName"></span></p>
+  <p>Basic Pay: <span id="basicPay"></span></p>
+  <p>Tax: <span id="tax"></span></p>
+  <p>Net Pay: <span id="netPay"></span></p>
+</div>
+
+<script>
+  const salaryForm = document.getElementById("salaryForm");
+  const resultsDiv = document.getElementById("results");
+  const empName = document.getElementById("empName");
+  const basicPay = document.getElementById("basicPay");
+  const tax = document.getElementById("tax");
+  const netPay = document.getElementById("netPay");
+
+  salaryForm.addEventListener("submit", (event) => {
+    event.preventDefault(); 
+
+    const name = document.getElementById("name").value;
+    const hours = parseFloat(document.getElementById("hours").value);
+    const rate = parseFloat(document.getElementById("rate").value);
+
+    const basic = hours * rate;
+    let taxAmount = 0;
+
+    if (basic > 50000) {
+      taxAmount = basic * 0.2;
+    } else if (basic >= 20000) {
+      taxAmount = basic * 0.1;
+    }
+
+    const net = basic - taxAmount;
+
+    empName.textContent = name;
+    basicPay.textContent = basic.toFixed(2);
+    tax.textContent = taxAmount.toFixed(2);
+    netPay.textContent = net.toFixed(2);
+
+    resultsDiv.style.display = "block";
+  });
+</script>
+</body>
+</html>

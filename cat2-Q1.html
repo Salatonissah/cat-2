@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 350px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: lightskyblue;
+      color: white;
+      padding: 15px 20px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .icons {
+      float: left;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Registration Form</h2>
+    <form>
+      <div>
+        <span class="icons"><i class="fas fa-user"></i></span>
+        <input type="text" placeholder="Name" required>
+      </div>
+      <div>
+        <span class="icons"><i class="fas fa-envelope"></i></span>
+        <input type="email" placeholder="Email ID" required>
+      </div>
+      <div>
+        <span class="icons"><i class="fas fa-phone"></i></span>
+        <input type="text" placeholder="Phone" required>
+      </div>
+      <div>
+        <span class="icons"><i class="fas fa-lock"></i></span>
+        <input type="password" placeholder="Set Password" required>
+      </div>
+      <input type="submit" value="REGISTER">
+    </form>
+  </div>
+</body>
+</html>
